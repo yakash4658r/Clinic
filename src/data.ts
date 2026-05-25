@@ -1,13 +1,20 @@
 export const CLINIC = {
-  name: "Asteria Skin & Wellness Clinic",
-  tagline: "Premium Skin & Wellness Care — Safe, Modern, Personalised",
-  location: "Chennai, Tamil Nadu",
-  phone: "+91 90000 12345",
-  whatsapp: "+91 90000 12345",
-  hours: "Mon–Sun: 9:00 AM – 8:00 PM",
+  name: "Bharati Fertility & Women Center",
+  branchName: "Bharati Fertility & Women Center",
+  tagline: "High Success Rates — Ethical, Evidence-Based & Affordable Infertility Treatments",
+  location: "Pondicherry & Chennai (Ambattur)",
+  addressPondy: "Shree IVF Care, Pondicherry",
+  addressChennai: "Bharati Fertility, First floor, 22B, Old Twp Rd, Venkatapuram, Ambattur, Chennai, Tamil Nadu 600053",
+  phone: "+91 82200 52005",
+  phoneAlt: "+91 97911 76767",
+  whatsapp: "+91 97911 76767",
+  hours: "Mon–Sat: 9:00 AM – 7:00 PM, Sun: 9:00 AM - 1:00 PM",
   rating: "4.9",
-  reviewCount: "1,200+",
+  reviewCount: "1,500+",
   visits: "10,000+",
+  babiesBorn: "5,000+",
+  experienceYears: "20+",
+  successRate: "80%",
 };
 
 export interface Service {
@@ -26,184 +33,258 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    id: "acne-scar",
-    name: "Acne & Scar Treatment",
-    shortDesc: "Advanced protocols to reduce active acne and fade scars effectively.",
-    price: "₹2,999",
-    duration: "45–60 min",
+    id: "natural-ivf",
+    name: "Natural Cycle IVF",
+    shortDesc: "A gentle IVF approach that works with your body's natural cycle without high-dose hormone medications.",
+    price: "₹60,000",
+    duration: "2-3 weeks",
+    icon: "🌸",
+    color: "from-rose-400 to-pink-500",
+    includes: [
+      "Natural ovulation cycle monitoring",
+      "Egg retrieval under mild sedation",
+      "Embryo culture in advanced incubators",
+      "Single embryo transfer",
+      "Post-transfer support & counseling"
+    ],
+    whoFor: ["Women with regular ovulation", "Those seeking medication-free treatments", "Couples looking for a gentle IVF option"],
+    sessions: "1 cycle",
+    safety: "Highly safe with minimal medication. Zero risk of Ovarian Hyperstimulation Syndrome (OHSS)."
+  },
+  {
+    id: "ovulation-induction",
+    name: "Ovulation Induction",
+    shortDesc: "Simple fertility medications to stimulate ovaries and promote release of healthy eggs.",
+    price: "₹5,000",
+    duration: "10-14 days",
+    icon: "🥚",
+    color: "from-amber-400 to-orange-500",
+    includes: [
+      "Follicular tracking ultrasound scans",
+      "Hormone baseline screening",
+      "Prescription of ovulation stimulants",
+      "Timed intercourse scheduling advice"
+    ],
+    whoFor: ["Women with irregular ovulation or PCOS", "Couples trying to conceive naturally", "Early stage fertility treatment"],
+    sessions: "3–6 cycles recommended",
+    safety: "Non-invasive. Small risk of multiple pregnancy which is carefully monitored via scans."
+  },
+  {
+    id: "icsi",
+    name: "Intra Cytoplasmic Sperm Injection",
+    shortDesc: "Advanced micro-fertilization where a single healthy sperm is injected directly into an egg.",
+    price: "₹1,20,000",
+    duration: "45 min",
+    icon: "💉",
+    color: "from-violet-400 to-purple-500",
+    includes: [
+      "Sperm selection under high magnification",
+      "Direct micro-injection by senior embryologist",
+      "Embryo development tracking",
+      "Sterile ICSI lab setup charges"
+    ],
+    whoFor: ["Severe male infertility", "Low sperm count or poor motility", "Previous failed IVF cycles"],
+    sessions: "Part of IVF cycle",
+    safety: "High success rates. Performed by expert embryologists under strict sterile conditions."
+  },
+  {
+    id: "iui",
+    name: "Intrauterine Insemination",
+    shortDesc: "Placing washed and concentrated sperm directly inside the uterus around the time of ovulation.",
+    price: "₹10,000",
+    duration: "15-20 min",
+    icon: "🧬",
+    color: "from-teal-400 to-cyan-500",
+    includes: [
+      "Sperm washing & enrichment",
+      "Insemination procedure",
+      "Post-procedure recovery rest",
+      "Dermatologist/fertility specialist supervision"
+    ],
+    whoFor: ["Mild male factor infertility", "Unexplained infertility", "Cervical mucus issues"],
+    sessions: "3-4 cycles advised",
+    safety: "Simple, outpatient procedure. Minimal discomfort, similar to a regular pap smear."
+  },
+  {
+    id: "surgical-treatment",
+    name: "Surgical Treatment Options",
+    shortDesc: "Minimally invasive keyhole surgeries (laparoscopy/hysteroscopy) to correct fertility obstructions.",
+    price: "₹25,000",
+    duration: "Varies",
+    icon: "🩺",
+    color: "from-blue-400 to-indigo-500",
+    includes: [
+      "Pre-operative checkup & clearance",
+      "Minimally invasive laparoscopy/hysteroscopy",
+      "Post-op observation",
+      "Expert surgeon fees & nursing care"
+    ],
+    whoFor: ["Uterine fibroids or polyps", "Blocked fallopian tubes", "Severe endometriosis"],
+    sessions: "One-time procedure",
+    safety: "Safe, daycare or short hospital stay. Swift recovery within a few days."
+  },
+  {
+    id: "pgd",
+    name: "Preimplantation Genetic Diagnosis",
+    shortDesc: "Testing embryos for genetic disorders prior to transfer to ensure a healthy pregnancy.",
+    price: "₹50,000",
+    duration: "Lab based",
+    icon: "🔬",
+    color: "from-sky-400 to-blue-500",
+    includes: [
+      "Embryo biopsy",
+      "Genetic screening panels",
+      "Cryopreservation of embryos during testing",
+      "Detailed genetic counseling & roadmap"
+    ],
+    whoFor: ["Couples with hereditary diseases", "Advanced maternal age", "Recurrent miscarriages"],
+    sessions: "Per IVF cycle",
+    safety: "Highly sophisticated and safe. Performed under high-power laser systems."
+  },
+  {
+    id: "cryopreservation",
+    name: "Cryopreservation of Sperm/Embryo",
+    shortDesc: "Advanced freezing techniques to preserve eggs, sperm, or embryos for future use.",
+    price: "₹25,000",
+    duration: "Varies",
+    icon: "❄️",
+    color: "from-cyan-400 to-teal-500",
+    includes: [
+      "Semen/embryo vitrification",
+      "Medical-grade liquid nitrogen storage",
+      "First year maintenance fee",
+      "Safety monitoring"
+    ],
+    whoFor: ["Fertility preservation for career", "Oncology patients before chemo", "Saving leftover embryos from IVF"],
+    sessions: "Long term preservation",
+    safety: "Extremely safe. Vitrification ensures high survival rates of cells upon thawing."
+  },
+  {
+    id: "ivf",
+    name: "In Vitro Fertilization",
+    shortDesc: "Standard fertility treatment where eggs are fertilized by sperm outside the body in a laboratory.",
+    price: "₹95,000",
+    duration: "4-6 weeks",
+    icon: "👶",
+    color: "from-emerald-400 to-teal-500",
+    includes: [
+      "Ovarian stimulation monitoring",
+      "Egg collection under anesthesia",
+      "Lab fertilization & incubation",
+      "Embryo transfer procedure"
+    ],
+    whoFor: ["Blocked fallopian tubes", "Advanced endometriosis", "Unexplained infertility after failed IUIs"],
+    sessions: "1 full cycle",
+    safety: "Fully supervised medical procedure with detailed scans at every step."
+  },
+  {
+    id: "surrogacy",
+    name: "Surrogacy Consultation",
+    shortDesc: "Expert medical and legal compliance counseling for gestational surrogacy options.",
+    price: "₹2,000",
+    duration: "60 min",
+    icon: "🤰",
+    color: "from-pink-400 to-rose-500",
+    includes: [
+      "Legal framework briefing",
+      "Medical feasibility review",
+      "Surrogate matching guidelines",
+      "Process mapping"
+    ],
+    whoFor: ["Severe uterine abnormalities", "Repeated pregnancy loss", "Medical conditions making pregnancy unsafe"],
+    sessions: "Consultation standalone",
+    safety: "Fully legal and ethical guidance in accordance with state laws."
+  },
+  {
+    id: "frozen-embryo-transfer",
+    name: "Frozen Embryo Transfer",
+    shortDesc: "Thawing previously frozen embryos and transferring them into the prepared uterus.",
+    price: "₹35,000",
+    duration: "30 min",
     icon: "✨",
     color: "from-rose-400 to-pink-500",
     includes: [
-      "Skin analysis & consultation",
-      "Deep pore cleanse + extraction",
-      "Targeted spot treatment",
-      "LED light therapy",
-      "Post-care soothing mask",
+      "Endometrial preparation protocols",
+      "Laser-assisted hatching (if needed)",
+      "Embryo thawing & check",
+      "Transfer procedure under ultrasound guidance"
     ],
-    whoFor: ["Active acne sufferers", "Post-acne hyperpigmentation", "Acne scar reduction seekers"],
-    sessions: "4–6 sessions recommended (2–4 weeks apart) for best results",
-    safety:
-      "Clinically supervised. Mild redness may occur for 24–48 hrs. Sun protection advised.",
+    whoFor: ["Leftover embryos from past cycles", "Postponed fresh transfer due to high hormones", "Planning siblings years later"],
+    sessions: "1 transfer session",
+    safety: "Non-invasive. High success rates equal to or higher than fresh transfer."
   },
   {
-    id: "laser-hair",
-    name: "Laser Hair Reduction",
-    shortDesc: "Long-lasting hair reduction using medical-grade diode laser technology.",
-    price: "₹1,999",
-    duration: "20–45 min",
+    id: "ovarian-drilling",
+    name: "Ovarian Drilling",
+    shortDesc: "Surgical puncture of ovaries with laser or electrocautery to restore normal ovulation in severe PCOS.",
+    price: "₹25,000",
+    duration: "45 min",
     icon: "⚡",
-    color: "from-violet-400 to-purple-500",
-    includes: [
-      "Skin & hair type assessment",
-      "Medical-grade diode laser session",
-      "Cooling gel application",
-      "Post-session soothing care",
-    ],
-    whoFor: ["Unwanted facial/body hair", "Ingrown hair issues", "Anyone seeking long-term reduction"],
-    sessions: "6–8 sessions for significant reduction; maintenance sessions thereafter",
-    safety:
-      "Safe for most skin tones. Mild warmth/tingling during session. Avoid sun 2 weeks pre/post.",
-  },
-  {
-    id: "prp-hair",
-    name: "PRP Hair Therapy",
-    shortDesc: "Platelet-Rich Plasma therapy to nourish hair follicles and reduce hair fall.",
-    price: "₹4,999",
-    duration: "60–75 min",
-    icon: "💧",
-    color: "from-teal-400 to-cyan-500",
-    includes: [
-      "Blood draw & PRP preparation",
-      "Scalp numbing cream",
-      "Micro-injection of PRP",
-      "Scalp massage therapy",
-      "Post-care instructions",
-    ],
-    whoFor: ["Early hair loss (Grade I–III)", "Thinning hair concerns", "Post-partum hair loss"],
-    sessions: "3–4 sessions (monthly), then maintenance every 6 months",
-    safety:
-      "Uses your own blood plasma — minimal allergy risk. Mild scalp tenderness for 24–48 hrs.",
-  },
-  {
-    id: "hydrafacial",
-    name: "HydraFacial Glow",
-    shortDesc: "Multi-step hydra-dermabrasion for instantly glowing, refreshed skin.",
-    price: "₹2,499",
-    duration: "60 min",
-    icon: "🌊",
-    color: "from-sky-400 to-blue-500",
-    includes: [
-      "Deep cleanse & exfoliation",
-      "Gentle acid peel",
-      "Painless extractions (vortex suction)",
-      "Antioxidant serum infusion",
-      "Hydration lock & SPF finish",
-    ],
-    whoFor: ["Dull, tired skin", "Pre-event glow seekers", "Dehydrated or stressed skin"],
-    sessions: "Single session shows visible results; monthly maintenance recommended",
-    safety:
-      "Non-invasive, no downtime. Suitable for all skin types. Mild sensitivity for a few hours.",
-  },
-  {
-    id: "anti-aging",
-    name: "Anti-Aging Consult",
-    shortDesc: "Expert Botox & filler consultations to plan your personalised rejuvenation.",
-    price: "₹699",
-    duration: "30 min",
-    icon: "🕊️",
     color: "from-amber-400 to-orange-500",
     includes: [
-      "Detailed facial analysis",
-      "Personalised treatment mapping",
-      "Product & procedure recommendations",
-      "Realistic outcome discussion",
-      "No-pressure consultation",
+      "Daycare laparoscopy",
+      "Anesthesia & surgical care",
+      "Post-op pain management",
+      "Ovulation monitoring scans"
     ],
-    whoFor: ["Fine lines & wrinkle concerns", "Volume loss concerns", "Anyone exploring aesthetic options"],
-    sessions: "Consultation is standalone; treatment plans discussed individually",
-    safety:
-      "Consultation only — no procedures during this session. All options explained transparently.",
+    whoFor: ["Severe PCOS patients resistant to oral drugs", "Women wanting to restore natural cycles"],
+    sessions: "One-time surgery",
+    safety: "Minimally invasive keyhole surgery. Fast healing and recovery."
   },
   {
-    id: "pigmentation",
-    name: "Pigmentation & Tan Removal",
-    shortDesc: "Targeted treatments to even skin tone and reduce sun damage effectively.",
-    price: "₹2,499",
-    duration: "45 min",
-    icon: "🌟",
-    color: "from-yellow-400 to-amber-500",
+    id: "blastocyst-transfer",
+    name: "Blastocyst Transfer",
+    shortDesc: "Growing embryos for 5 days until they reach the blastocyst stage before transferring them.",
+    price: "₹15,000",
+    duration: "Part of IVF cycle",
+    icon: "🧬",
+    color: "from-violet-400 to-purple-500",
     includes: [
-      "Skin tone analysis",
-      "Targeted depigmentation therapy",
-      "Vitamin C brightening infusion",
-      "Gentle laser/IPL option",
-      "SPF counselling",
+      "Extended lab culture to Day 5",
+      "Embryologist assessment of blastocyst grade",
+      "Laser assisted transfer",
+      "Vitrification of surplus blastocysts"
     ],
-    whoFor: ["Sun tan & hyperpigmentation", "Melasma concerns", "Uneven skin tone"],
-    sessions: "4–6 sessions recommended; results may vary by skin type",
-    safety:
-      "Mild redness expected. Strict sun protection mandatory during treatment course.",
+    whoFor: ["Desiring higher success rates per transfer", "Reducing risk of multiple births (single embryo transfer)"],
+    sessions: "1 transfer cycle",
+    safety: "Mimics natural implantation timing, resulting in higher pregnancy rates."
   },
   {
-    id: "chemical-peel",
-    name: "Medi-Peel / Chemical Peel",
-    shortDesc: "Professional-grade peels to resurface skin texture and address concerns.",
-    price: "₹2,999",
-    duration: "30–45 min",
-    icon: "🍃",
-    color: "from-green-400 to-emerald-500",
-    includes: [
-      "Skin assessment & prep",
-      "Customised peel selection",
-      "Peel application & neutralisation",
-      "Calming serum & moisturiser",
-      "Post-peel care kit guidance",
-    ],
-    whoFor: ["Textured / congested skin", "Fine lines & dullness", "Mild acne & pigmentation"],
-    sessions: "Series of 4–6 peels (2–4 weeks apart) for optimal outcome",
-    safety:
-      "Mild peeling for 3–5 days post-session. Avoid harsh actives & sun during recovery.",
-  },
-  {
-    id: "body-contouring",
-    name: "Body Contouring Consult",
-    shortDesc: "Evidence-based contouring consultations to explore non-surgical body shaping options.",
-    price: "₹699",
+    id: "tesa",
+    name: "Testicular Sperm Aspiration",
+    shortDesc: "Minimally invasive extraction of sperm directly from the testicles for male infertility.",
+    price: "₹30,000",
     duration: "30 min",
-    icon: "💎",
-    color: "from-indigo-400 to-blue-500",
+    icon: "💉",
+    color: "from-blue-400 to-indigo-500",
     includes: [
-      "BMI & body composition discussion",
-      "Treatment option walkthrough",
-      "Personalised goal mapping",
-      "Lifestyle & nutrition guidance",
-      "Follow-up plan outline",
+      "Local anesthesia",
+      "Fine needle aspiration of testicular tissue",
+      "Immediate lab search for viable sperm",
+      "ICSI fertilization preparation"
     ],
-    whoFor: ["Localised fat concerns", "Post-pregnancy body goals", "Anyone exploring non-surgical options"],
-    sessions: "Consultation standalone; treatment sessions discussed post-assessment",
-    safety:
-      "Consultation only. All non-surgical options explained with realistic expectations.",
+    whoFor: ["Azoospermia (zero sperm in semen)", "Blockage in sperm ducts", "Severe male factor issues"],
+    sessions: "Outpatient procedure",
+    safety: "Safe, outpatient procedure. Minimal recovery downtime with mild discomfort for a few days."
   },
   {
-    id: "skin-consult",
-    name: "General Skin Consultation",
-    shortDesc: "Comprehensive skin analysis with a certified dermatologist for a personalised plan.",
-    price: "₹699",
-    duration: "30 min",
-    icon: "🩺",
-    color: "from-cyan-400 to-teal-500",
+    id: "infertility-diagnosis",
+    name: "Infertility Diagnosis",
+    shortDesc: "Comprehensive male and female fertility evaluation scans and semen analysis to identify root causes.",
+    price: "₹1,500",
+    duration: "60-90 min",
+    icon: "🔍",
+    color: "from-teal-400 to-cyan-500",
     includes: [
-      "Full skin assessment",
-      "Medical & lifestyle history",
-      "Skincare routine review",
-      "Personalised prescription (if needed)",
-      "Written care plan",
+      "Semen analysis",
+      "Transvaginal scan (USG)",
+      "Hormone level checkup",
+      "Couple counseling & customized roadmap"
     ],
-    whoFor: ["New patients", "Changing skin concerns", "Routine skin health check"],
-    sessions: "Single session — follow-up as recommended by the doctor",
-    safety:
-      "Non-invasive consultation. Safe for all skin types and ages.",
-  },
+    whoFor: ["Couples unable to conceive after 1 year of marriage", "Irregular cycles", "Curious about fertility status"],
+    sessions: "Diagnostic phase",
+    safety: "Completely safe, non-invasive screening diagnostics."
+  }
 ];
 
 export interface Doctor {
@@ -215,39 +296,32 @@ export interface Doctor {
   available: boolean;
   color: string;
   initials: string;
+  desc: string;
 }
 
 export const DOCTORS: Doctor[] = [
   {
-    id: "ananya",
-    name: "Dr. Ananya Iyer",
-    qualification: "MD (Dermatology)",
-    specialization: "Medical & Cosmetic Dermatology",
-    experience: "10+ years",
+    id: "hemalatha",
+    name: "Dr. S. Hemalatha V",
+    qualification: "M.Phil., Ph.D. (Embryology)",
+    specialization: "Chief Embryologist & Founder",
+    experience: "20+ years",
     available: true,
     color: "from-rose-400 to-pink-500",
-    initials: "AI",
+    initials: "SH",
+    desc: "A pioneer in embryology and fertility counseling. Expert in treating high-risk patients and repeated ICSI failures. Her practice is evidence-based, ethical, and affordable."
   },
   {
-    id: "karthik",
-    name: "Dr. Karthik Raman",
-    qualification: "MBBS, DDVL",
-    specialization: "Dermatology & Venereology",
-    experience: "8+ years",
+    id: "bharathi",
+    name: "Dr. Bharathi",
+    qualification: "MD (Reproductive Medicine)",
+    specialization: "Senior Fertility Specialist",
+    experience: "15+ years",
     available: true,
     color: "from-teal-400 to-cyan-500",
-    initials: "KR",
-  },
-  {
-    id: "meera",
-    name: "Dr. Meera Sundaram",
-    qualification: "Cosmetologist (Certified)",
-    specialization: "Cosmetic Procedures & Skin Wellness",
-    experience: "7+ years",
-    available: false,
-    color: "from-violet-400 to-purple-500",
-    initials: "MS",
-  },
+    initials: "DB",
+    desc: "Renowned expert in reproductive medicine, ovarian stimulation, and managing complex IVF cycles."
+  }
 ];
 
 export interface Testimonial {
@@ -263,76 +337,40 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    name: "Priya Krishnamurthy",
-    service: "HydraFacial Glow",
+    name: "Priya & Ramkumar",
+    service: "In Vitro Fertilization",
     rating: 5,
-    text: "I had my HydraFacial done before my wedding and the results were genuinely wonderful. My skin looked fresh and hydrated for the entire event. The team was professional and made me feel completely at ease.",
-    initials: "PK",
-    location: "Anna Nagar, Chennai",
+    text: "After 7 years of marriage and two failed attempts elsewhere, we visited Shree IVF Care. Dr. Hemalatha's guidance and ethical approach changed our lives. The lab facilities are top-notch and we are now parents to a healthy baby girl!",
+    initials: "PR",
+    location: "Pondicherry",
   },
   {
     id: 2,
-    name: "Arjun Selvam",
-    service: "Laser Hair Reduction",
+    name: "Vijay & Nandhini",
+    service: "Intra Cytoplasmic Sperm Injection",
     rating: 5,
-    text: "Six sessions of laser hair reduction and I'm so happy I made the decision. The staff explained everything clearly, the procedure was comfortable, and the results have been consistent. Very professional setup.",
-    initials: "AS",
-    location: "Velachery, Chennai",
+    text: "We are extremely grateful to Bharati Fertility Center in Ambattur. The ICSI treatment was successful on our first attempt. Transparent pricing and constant support throughout the process.",
+    initials: "VN",
+    location: "Ambattur, Chennai",
   },
   {
     id: 3,
-    name: "Deepa Narayanan",
-    service: "Acne & Scar Treatment",
+    name: "Gayathri & Suresh",
+    service: "Blastocyst Transfer",
     rating: 5,
-    text: "I'd struggled with acne scars for years. Dr. Ananya designed a plan specifically for my skin, and after the recommended sessions I'm genuinely pleased with the improvement. Transparent about what to expect — I appreciated that.",
-    initials: "DN",
-    location: "Adyar, Chennai",
+    text: "Best IVF clinic near Pondicherry. Highly experienced staff and Dr. Hemalatha explained every step clearly. The blastocyst transfer worked wonders for us.",
+    initials: "GS",
+    location: "Cuddalore",
   },
   {
     id: 4,
-    name: "Ramesh Balaji",
-    service: "PRP Hair Therapy",
+    name: "Kavitha & Arul",
+    service: "Intrauterine Insemination",
     rating: 5,
-    text: "Started PRP for early hair thinning after a recommendation from a friend. The doctors are knowledgeable and the process was explained step by step. Three sessions in and I'm noticing positive changes.",
-    initials: "RB",
-    location: "Porur, Chennai",
-  },
-  {
-    id: 5,
-    name: "Sunitha Mohan",
-    service: "Pigmentation & Tan Removal",
-    rating: 5,
-    text: "My sun tan was really bothering me. The clinic assessed my skin type first, then recommended a suitable treatment plan. No rush to upsell anything — just honest advice. The clinic is also very clean and hygienic.",
-    initials: "SM",
-    location: "T. Nagar, Chennai",
-  },
-  {
-    id: 6,
-    name: "Vikram Chandrasekaran",
-    service: "General Skin Consultation",
-    rating: 5,
-    text: "Came in for a general consultation and left with a clear skincare plan and a prescription. Dr. Karthik spent good time understanding my concerns. The ₹699 consultation fee is completely worth it for the clarity you get.",
-    initials: "VC",
-    location: "Nungambakkam, Chennai",
-  },
-  {
-    id: 7,
-    name: "Kavitha Subramaniam",
-    service: "Medi-Peel / Chemical Peel",
-    rating: 5,
-    text: "Had a series of chemical peels for texture issues. The doctor customised the strength for my skin, and the staff guided me through post-care thoroughly. My skin texture has noticeably improved over the course.",
-    initials: "KS",
-    location: "Mylapore, Chennai",
-  },
-  {
-    id: 8,
-    name: "Anand Raghunathan",
-    service: "Anti-Aging Consult",
-    rating: 5,
-    text: "Was considering aesthetic treatments but had many questions. The anti-aging consultation was thorough, honest and zero-pressure. Dr. Meera explained what's realistic and what isn't — exactly the kind of advice I needed.",
-    initials: "AR",
-    location: "Guindy, Chennai",
-  },
+    text: "Affordable treatment compared to other corporate clinics. No hidden charges. The doctors are highly professional and empathetic.",
+    initials: "KA",
+    location: "Villupuram",
+  }
 ];
 
 export interface FAQ {
@@ -344,50 +382,22 @@ export interface FAQ {
 export const FAQS: FAQ[] = [
   {
     id: 1,
-    question: "Are the treatments safe? What certifications do your doctors hold?",
-    answer:
-      "Yes. All treatments at Asteria are performed by certified dermatologists and trained cosmetologists. Our clinic uses medical-grade equipment and follows strict sterilisation protocols approved by regulatory standards. Each treatment is preceded by a skin assessment to ensure suitability.",
+    question: "What is your success rate for IVF?",
+    answer: "Our clinic has an 80% success rate depending on patient age, diagnosis, and medical history. We follow evidence-based protocols to ensure the highest possible chance of pregnancy.",
   },
   {
     id: 2,
-    question: "How many sessions will I need to see results?",
-    answer:
-      "The number of sessions varies by treatment and individual skin type. For example, laser hair reduction typically requires 6–8 sessions, while a HydraFacial may show visible results after a single session. During your consultation, your doctor will give you an honest, personalised estimate — we do not promise fixed outcomes.",
+    question: "Is pricing transparent? Are there hidden charges?",
+    answer: "Absolutely. Shree IVF Care is built on an ethical, affordable approach. All costs are discussed upfront during your custom treatment planning. We have no hidden charges.",
   },
   {
     id: 3,
-    question: "Is there downtime after treatments? Can I return to work the same day?",
-    answer:
-      "Most of our treatments are low-downtime or no-downtime procedures. A HydraFacial or consultation has zero downtime. Chemical peels may involve 3–5 days of mild skin shedding. Laser sessions may cause temporary redness. Your doctor will advise you specifically before your session.",
+    question: "How many IVF cycles will I need?",
+    answer: "Many couples achieve success in their first cycle. However, some may require 2 to 3 cycles depending on age and fertility conditions. Your embryologist will detail your chances transparently.",
   },
   {
     id: 4,
     question: "What is your consultation fee?",
-    answer:
-      "A general skin consultation with our dermatologist is ₹699. Specialised consultations (anti-aging, body contouring) are also ₹699. The consultation fee is fully transparent with no hidden charges. Treatment costs are explained clearly during the consultation before you commit to anything.",
-  },
-  {
-    id: 5,
-    question: "Is pricing transparent? Are there hidden charges?",
-    answer:
-      "Absolutely. We believe in upfront, transparent pricing. The 'starting from' prices listed are the base rates for a single session. Packages or multi-session plans may be discussed, but there is no obligation to purchase. All costs are communicated before treatment begins.",
-  },
-  {
-    id: 6,
-    question: "How long does a typical appointment last?",
-    answer:
-      "Consultations run 20–30 minutes. Treatment sessions range from 20 minutes (small-area laser) to 75 minutes (PRP hair therapy). We recommend arriving 10 minutes early for paperwork. You will be informed of the approximate duration when you book.",
-  },
-  {
-    id: 7,
-    question: "What should I do before my first appointment?",
-    answer:
-      "Remove makeup or heavy skincare products before arriving. Avoid sun exposure 48 hours before laser/peel sessions. Bring any ongoing prescriptions or skincare products you currently use. For PRP, avoid blood thinners (with your doctor's advice). We will send a pre-visit checklist via WhatsApp after booking.",
-  },
-  {
-    id: 8,
-    question: "Do you offer a guarantee on results?",
-    answer:
-      "We do not promise or guarantee specific outcomes, as results vary by individual skin type, lifestyle, and adherence to post-care. What we do promise is honest, evidence-based advice, personalised treatment plans, and full support throughout your journey. We encourage realistic expectations and open communication.",
-  },
+    answer: "A complete fertility consultation starts from ₹1,500, which includes custom pelvic scans and sperm/semen analysis review counseling. There are no pressure packages.",
+  }
 ];

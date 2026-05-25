@@ -23,7 +23,7 @@ export default function FloatingWidgets() {
     <>
       {/* Floating WhatsApp */}
       <motion.a
-        href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Hi! I'd like to book a consultation at Asteria Clinic.")}`}
+        href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Hi! I'd like to book a consultation at Bharati Fertility.")}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
@@ -53,7 +53,7 @@ export default function FloatingWidgets() {
             transition={{ duration: 0.2 }}
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="fixed bottom-8 right-5 z-40 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:bg-amber-50 hover:border-amber-400 hover:text-amber-700 transition-all"
+            className="fixed bottom-8 right-5 z-40 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-600 hover:bg-gray-50 hover:border-[#14427b]/20 hover:text-[#14427b] transition-all"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
@@ -64,10 +64,10 @@ export default function FloatingWidgets() {
 
       {/* Mobile Bottom Sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden">
-        <div className="bg-white border-t border-slate-200 px-4 py-3 flex gap-3 shadow-xl">
+        <div className="bg-white border-t border-gray-200 px-4 py-3 flex gap-3 shadow-xl">
           <a
             href={`tel:${CLINIC.phone.replace(/\s+/g, "")}`}
-            className="flex-1 flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-3 rounded-xl text-sm transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 rounded-xl text-sm transition-colors"
             aria-label={`Call ${CLINIC.phone}`}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -77,7 +77,7 @@ export default function FloatingWidgets() {
           </a>
           <button
             onClick={scrollToTop}
-            className="flex-[2] flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-extrabold py-3 rounded-xl text-sm shadow-lg shadow-amber-900/20"
+            className="flex-[2] flex items-center justify-center gap-2 bg-[#e51b60] hover:bg-[#c91552] text-white font-bold py-3 rounded-xl text-sm shadow-lg shadow-[#e51b60]/20 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

@@ -1,6 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import Header from "./components/Header";
 import HeroForm from "./components/HeroForm";
+import AboutFounder from "./components/AboutFounder";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import ContactCTA from "./components/ContactCTA";
 import Footer from "./components/Footer";
@@ -25,6 +26,9 @@ export default function App() {
       <main id="main-content">
         {/* Hero + Form (Above the fold) */}
         <HeroForm />
+
+        {/* About Founder & Why Choose Us & Treatments */}
+        <AboutFounder />
 
         {/* Testimonials */}
         <TestimonialsCarousel />

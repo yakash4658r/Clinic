@@ -4,13 +4,17 @@ import { TESTIMONIALS, CLINIC } from "../data";
 import AnimatedSection from "./AnimatedSection";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 
+import labImg from "../assets/lab.png";
+import consultingImg from "../assets/consulting.png";
+import receptionImg from "../assets/reception.png";
+
 function StarRating({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className={`w-4 h-4 ${i < count ? "text-amber-400" : "text-slate-200"}`}
+          className={`w-3.5 h-3.5 ${i < count ? "text-yellow-400" : "text-gray-200"}`}
           fill="currentColor"
           viewBox="0 0 20 20"
           aria-hidden="true"
@@ -22,10 +26,33 @@ function StarRating({ count }: { count: number }) {
   );
 }
 
+const pillars = [
+  {
+    icon: "⭐",
+    title: "Renowned IVF Specialist",
+    desc: "Experienced and highly recommended specialists leading your care.",
+    accent: "#e51b60",
+  },
+  {
+    icon: "🔬",
+    title: "Advanced Technologies",
+    desc: "Most advanced micro-fertilization techniques and incubation systems.",
+    accent: "#e51b60",
+  },
+  {
+    icon: "🤝",
+    title: "Step-by-Step Counseling",
+    desc: "Empathetic guidance and clear facts for a happy, safe delivery.",
+    accent: "#e51b60",
+  },
+];
+
 export default function TestimonialsCarousel() {
   const prefersReduced = useReducedMotion();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const total = TESTIMONIALS.length;
 
   const go = useCallback((dir: 1 | -1) => {
@@ -33,7 +60,6 @@ export default function TestimonialsCarousel() {
     setCurrent((prev) => (prev + dir + total) % total);
   }, [total]);
 
-  // Auto-advance
   useEffect(() => {
     if (prefersReduced) return;
     const timer = setInterval(() => go(1), 6000);
@@ -46,167 +72,311 @@ export default function TestimonialsCarousel() {
     exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
   };
 
-  // Show 3 testimonials on desktop (current, next, next+1)
-  const getVisible = () => {
-    return [0, 1, 2].map((offset) => TESTIMONIALS[(current + offset) % total]);
-  };
-
+  const getVisible = () => [0, 1, 2].map((offset) => TESTIMONIALS[(current + offset) % total]);
   const visible = getVisible();
 
+  const videos = [
+    {
+      id: "v1",
+      title: "Best IVF Specialist | Happy Parents Success",
+      duration: "3:45",
+      thumb: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&w=640&q=80",
+      description: "Successful delivery after 8 years of primary infertility.",
+      initials: "MK",
+    },
+    {
+      id: "v2",
+      title: "Happy Patient | IVF Success Journey",
+      duration: "5:28",
+      thumb: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=640&q=80",
+      description: "Conceived twins through ICSI and blastocyst transfer.",
+      initials: "RN",
+    },
+    {
+      id: "v3",
+      title: "Happy Patient Review | Bharati Fertility Center",
+      duration: "4:18",
+      thumb: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=640&q=80",
+      description: "Sharing our affordable treatment and counseling experience.",
+      initials: "SD",
+    },
+  ];
+
+  const galleryItems = [
+    { src: labImg, title: "Embryology Laboratory", desc: "Equipped with advanced triple-gas incubators and micro-manipulators for ICSI." },
+    { src: consultingImg, title: "Consulting Room", desc: "Private, warm, and zero-pressure consulting room for personalized couple guidance." },
+    { src: receptionImg, title: "Welcoming Reception Lobby", desc: "Comfortable and safe clinical environment prioritizing patient confidentiality." },
+  ];
+
   return (
-    <section id="testimonials" className="py-20 lg:py-28 bg-[#FDFBF7]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <AnimatedSection className="text-center mb-14">
-          <span className="inline-flex items-center gap-1.5 border-b border-amber-500/20 pb-1.5 text-amber-800 text-[10px] sm:text-xs font-light tracking-[0.2em] uppercase mb-5">
-            Patient Stories
-          </span>
-          <h2 className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl text-slate-900 mb-6 leading-[1.15] tracking-wide">
-            What Our Patients{" "}
-            <span className="font-serif italic font-normal bg-gradient-to-r from-amber-700 via-amber-600 to-yellow-700 bg-clip-text text-transparent">
-              Are Saying
-            </span>
-          </h2>
+    <>
+      {/* ─── 3 Pillars Feature Banner ─── */}
+      <section className="relative bg-[#14427b] overflow-hidden">
+        {/* subtle diagonal accent */}
+        <div className="absolute inset-0 pointer-events-none opacity-10"
+          style={{ background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 60px)" }} />
 
-          {/* Google Reviews Badge */}
-          <div className="inline-flex items-center gap-4 bg-[#FAF7F0] border border-amber-900/10 rounded-2xl px-6 py-3.5 mt-2 shadow-sm">
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-amber-600/10 flex items-center justify-center text-amber-700 text-[10px] font-bold font-serif">G</span>
-              <span className="text-slate-800 font-medium text-[10px] tracking-wider uppercase">Google Reviews</span>
-            </div>
-            <div className="w-px h-5 bg-amber-900/15" />
-            <div className="flex items-center gap-2">
-              <StarRating count={5} />
-              <span className="text-slate-950 font-bold text-sm font-serif">{CLINIC.rating}</span>
-              <span className="text-slate-500 text-xs font-light">({CLINIC.reviewCount} reviews)</span>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Desktop: 3 cards visible */}
-        <div className="hidden lg:block">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={current}
-              custom={direction}
-              variants={prefersReduced ? {} : {
-                enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
-                center: { x: 0, opacity: 1 },
-                exit: (dir) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
-              }}
-              initial={prefersReduced ? {} : "enter"}
-              animate={prefersReduced ? {} : "center"}
-              exit={prefersReduced ? {} : "exit"}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="grid lg:grid-cols-3 gap-6"
-            >
-              {visible.map((testimonial) => (
-                <article
-                  key={testimonial.id}
-                  className="bg-white/80 backdrop-blur-sm border border-amber-900/5 shadow-md shadow-amber-900/5 hover:border-amber-400/20 transition-all rounded-3xl p-7 flex flex-col"
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="grid md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
+            {pillars.map((pillar, i) => (
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12, duration: 0.5 }}
+                whileHover={{ backgroundColor: "rgba(255,255,255,0.06)" }}
+                className="flex items-start gap-4 p-8 transition-colors duration-300"
+              >
+                <motion.span
+                  whileHover={{ scale: 1.2, rotate: [-5, 5, 0] }}
+                  transition={{ duration: 0.4 }}
+                  className="text-3xl flex-shrink-0 mt-0.5"
                 >
-                  <div className="flex items-center gap-1 mb-4">
-                    <StarRating count={testimonial.rating} />
-                  </div>
-                  <blockquote className="text-slate-700 text-sm font-light leading-relaxed mb-6 flex-1 italic">
-                    "{testimonial.text}"
-                  </blockquote>
-                  <div className="flex items-center gap-3 pt-4 border-t border-amber-900/5">
-                    <div className="w-10 h-10 rounded-full bg-[#FAF7F0] border border-amber-500/15 flex items-center justify-center text-amber-800 font-serif font-medium text-sm flex-shrink-0">
-                      {testimonial.initials}
-                    </div>
-                    <div>
-                      <div className="font-medium text-slate-900 text-sm">{testimonial.name}</div>
-                      <div className="text-slate-450 text-[11px] font-light">{testimonial.location}</div>
-                    </div>
-                    <div className="ml-auto">
-                      <span className="bg-amber-500/5 text-amber-800 text-[9px] uppercase tracking-wider font-light px-2.5 py-1 rounded-md border border-amber-500/10">
-                        {testimonial.service}
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Mobile: Single card */}
-        <div className="lg:hidden">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.article
-              key={current}
-              custom={direction}
-              variants={prefersReduced ? {} : slideVariants}
-              initial={prefersReduced ? {} : "enter"}
-              animate={prefersReduced ? {} : "center"}
-              exit={prefersReduced ? {} : "exit"}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="bg-white/85 border border-amber-900/5 shadow-md shadow-amber-900/5 rounded-3xl p-7"
-            >
-              <div className="flex items-center gap-1 mb-4">
-                <StarRating count={TESTIMONIALS[current].rating} />
-              </div>
-              <blockquote className="text-slate-700 text-sm font-light leading-relaxed mb-6 italic">
-                "{TESTIMONIALS[current].text}"
-              </blockquote>
-              <div className="flex items-start gap-3 pt-4 border-t border-amber-900/5">
-                <div className="w-10 h-10 rounded-full bg-[#FAF7F0] border border-amber-500/15 flex items-center justify-center text-amber-800 font-serif font-medium text-sm flex-shrink-0">
-                  {TESTIMONIALS[current].initials}
+                  {pillar.icon}
+                </motion.span>
+                <div>
+                  <h4 className="font-bold text-base mb-2" style={{ color: pillar.accent }}>
+                    {pillar.title}
+                  </h4>
+                  <p className="text-white/65 text-sm leading-relaxed">{pillar.desc}</p>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-medium text-slate-900 text-sm">{TESTIMONIALS[current].name}</div>
-                  <div className="text-slate-450 text-[11px] font-light">{TESTIMONIALS[current].location}</div>
-                  <span className="inline-block mt-2.5 bg-amber-500/5 text-amber-800 text-[9px] uppercase tracking-wider font-light px-2.5 py-1 rounded-md border border-amber-500/10">
-                    {TESTIMONIALS[current].service}
-                  </span>
-                </div>
-              </div>
-            </motion.article>
-          </AnimatePresence>
-        </div>
-
-        {/* Navigation */}
-        <div className="flex items-center justify-center gap-4 mt-8">
-          <button
-            onClick={() => go(-1)}
-            aria-label="Previous testimonial"
-            className="w-10 h-10 rounded-full border border-amber-900/10 bg-white hover:bg-[#FAF7F0] flex items-center justify-center text-slate-600 hover:text-amber-800 transition-all shadow-sm"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          {/* Dots */}
-          <div className="flex gap-2" role="tablist" aria-label="Testimonials navigation">
-            {TESTIMONIALS.map((_, i) => (
-              <button
-                key={i}
-                role="tab"
-                aria-selected={i === current}
-                aria-label={`Go to testimonial ${i + 1}`}
-                onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                className={`rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "w-6 h-1.5 bg-amber-600"
-                    : "w-1.5 h-1.5 bg-amber-900/15 hover:bg-amber-900/25"
-                }`}
-              />
+              </motion.div>
             ))}
           </div>
-
-          <button
-            onClick={() => go(1)}
-            aria-label="Next testimonial"
-            className="w-10 h-10 rounded-full border border-amber-900/10 bg-white hover:bg-[#FAF7F0] flex items-center justify-center text-slate-600 hover:text-amber-800 transition-all shadow-sm"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ─── Video Testimonials ─── */}
+      <section id="video-testimonials" className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <AnimatedSection className="text-center mb-14">
+            <motion.span
+              initial={{ opacity: 0, y: -8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-[#e51b60] mb-4 bg-pink-50 border border-pink-200 px-4 py-1.5 rounded-full"
+            >
+              Success Journeys
+            </motion.span>
+            <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
+              <span className="text-gray-900">Testimonial </span>
+              <span
+                style={{ background: "linear-gradient(135deg, #e51b60, #ff6b9d)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+              >
+                Videos
+              </span>
+            </h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto leading-relaxed">
+              Listen directly to couples sharing their real IVF and fertility journey experiences under Dr. S. Hemalatha's guidance.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {videos.map((vid, i) => (
+              <motion.div
+                key={vid.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, type: "spring", stiffness: 80, damping: 15 }}
+                onHoverStart={() => setHoveredCard(vid.id)}
+                onHoverEnd={() => setHoveredCard(null)}
+                onClick={() => setActiveVideo(vid.id)}
+                className="group cursor-pointer"
+              >
+                <motion.div
+                  animate={{ y: hoveredCard === vid.id ? -6 : 0, boxShadow: hoveredCard === vid.id ? "0 20px 40px rgba(229,27,96,0.15)" : "0 2px 8px rgba(0,0,0,0.06)" }}
+                  transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                  className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col"
+                >
+                  {/* Thumbnail */}
+                  <div className="relative aspect-video bg-gray-900 overflow-hidden">
+                    <motion.img
+                      src={vid.thumb}
+                      alt={vid.title}
+                      animate={{ scale: hoveredCard === vid.id ? 1.07 : 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="w-full h-full object-cover opacity-85"
+                    />
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+
+                    {/* Play button */}
+                    <motion.div
+                      animate={{ scale: hoveredCard === vid.id ? 1.15 : 1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <div className="w-14 h-14 rounded-full bg-[#e51b60] shadow-lg shadow-pink-500/40 flex items-center justify-center">
+                        <svg className="w-6 h-6 fill-white ml-1" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </motion.div>
+
+                    {/* Duration badge */}
+                    <span className="absolute bottom-2.5 right-2.5 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded font-mono tracking-wider">
+                      {vid.duration}
+                    </span>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-5">
+                    <h4 className="font-bold text-gray-900 text-sm leading-snug mb-3 group-hover:text-[#e51b60] transition-colors duration-200">
+                      {vid.title}
+                    </h4>
+                    <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
+                      <div className="w-7 h-7 rounded-full bg-[#14427b] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">
+                        {vid.initials}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <svg className="w-3 h-3 text-[#e51b60]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-[10px] text-gray-500 uppercase tracking-widest font-medium">Verified Patient Story</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Reviews Section ─── */}
+      <section id="reviews" className="py-20 lg:py-28 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-14">
+            <span className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-[#e51b60] mb-4 bg-pink-50 border border-pink-200 px-4 py-1.5 rounded-full">
+              Patient Stories
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
+              <span className="text-gray-900">What Our Patients </span>
+              <span style={{ background: "linear-gradient(135deg, #e51b60, #ff6b9d)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                Are Saying
+              </span>
+            </h2>
+
+            {/* Google Reviews badge */}
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              className="inline-flex items-center gap-4 bg-white border border-gray-200 rounded-2xl px-6 py-3.5 shadow-sm cursor-default"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-full bg-[#14427b] flex items-center justify-center text-white text-[10px] font-bold">G</div>
+                <span className="text-gray-800 font-bold text-[10px] tracking-wider uppercase">Google Reviews</span>
+              </div>
+              <div className="w-px h-5 bg-gray-200" />
+              <div className="flex items-center gap-2">
+                <StarRating count={5} />
+                <span className="text-gray-900 font-bold text-sm">{CLINIC.rating}</span>
+                <span className="text-gray-500 text-xs">({CLINIC.reviewCount} reviews)</span>
+              </div>
+            </motion.div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {TESTIMONIALS.slice(0, 6).map((testimonial, i) => (
+              <motion.article
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="bg-white border border-gray-100 shadow-sm rounded-2xl p-7 flex flex-col hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#14427b] to-[#e51b60] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    {testimonial.initials}
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900 text-sm">{testimonial.name}</div>
+                    <div className="flex items-center gap-1 mt-0.5">
+                      <StarRating count={testimonial.rating} />
+                    </div>
+                  </div>
+                  <div className="ml-auto bg-gray-100 p-1.5 rounded-full flex-shrink-0">
+                    <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.18 13.91l-3.9-2.34c-.17-.1-.38-.1-.55 0l-3.9 2.34c-.38.23-.85-.05-.73-.48l1.04-4.43c.04-.19-.02-.38-.15-.52l-3.41-3.08c-.33-.3-.15-.85.3-.89l4.53-.39c.19-.02.35-.14.43-.31l1.79-4.2c.18-.42.78-.42.96 0l1.79 4.2c.08.18.25.3.43.31l4.53.39c.45.04.63.59.3.89l-3.41 3.08c-.14.13-.2.32-.15.52l1.04 4.43c.12.43-.35.71-.73.48z" />
+                    </svg>
+                  </div>
+                </div>
+                <blockquote className="text-gray-600 text-sm leading-relaxed mb-4 flex-1">
+                  "{testimonial.text}"
+                </blockquote>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                  <div className="text-gray-400 text-[11px]">{testimonial.location}</div>
+                  <span className="bg-pink-50 text-[#e51b60] text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-lg border border-pink-100">
+                    {testimonial.service}
+                  </span>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* ─── Video Modal ─── */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveVideo(null)}
+            className="fixed inset-0 bg-black/85 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-gray-950 border border-gray-800 rounded-3xl overflow-hidden max-w-3xl w-full aspect-video relative flex items-center justify-center"
+            >
+              <div className="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-t from-black via-transparent to-black/80">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-white font-bold text-base max-w-[75%] leading-snug">
+                    {videos.find(v => v.id === activeVideo)?.title}
+                  </h3>
+                  <motion.button
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(229,27,96,0.3)" }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setActiveVideo(null)}
+                    className="text-white w-9 h-9 rounded-full bg-white/10 flex items-center justify-center transition-colors text-lg flex-shrink-0"
+                  >
+                    ×
+                  </motion.button>
+                </div>
+
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="flex items-center justify-center self-center bg-[#e51b60]/15 border border-[#e51b60]/30 text-[#e51b60] p-7 rounded-full"
+                >
+                  <svg className="w-12 h-12 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+                  </svg>
+                </motion.div>
+
+                <div className="flex items-center gap-3">
+                  <motion.span
+                    animate={{ opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="w-2 h-2 rounded-full bg-green-500"
+                  />
+                  <span className="text-xs text-white/70">Loading patient testimonial video...</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

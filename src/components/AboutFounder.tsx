@@ -265,34 +265,6 @@ export default function AboutFounder() {
                 Treatments
               </span>
             </h2>
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Every path to parenthood is unique. Our specialists combine cutting-edge science with deeply personalised care, offering a comprehensive suite of treatments designed to give you the{" "}
-              <span className="text-[#e51b60] font-semibold">best possible chance of success.</span>
-            </p>
-          </AnimatedSection>
-
-          {/* Stats Bar */}
-          <AnimatedSection delay={0.1} className="mb-14">
-            <div className="bg-white/70 backdrop-blur-sm border border-pink-100 rounded-2xl py-5 px-6 flex flex-wrap justify-around gap-4 shadow-sm">
-              {[
-                { value: "14+", label: "Speciality Treatments" },
-                { value: "98%", label: "Patient Satisfaction" },
-                { value: "20K+", label: "Families Created" },
-                { value: "25YRS", label: "Clinical Excellence" },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 leading-none mb-1">{stat.value}</div>
-                  <div className="text-[11px] text-gray-500 uppercase tracking-widest font-medium">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
           </AnimatedSection>
 
           {/* Treatments Grid */}

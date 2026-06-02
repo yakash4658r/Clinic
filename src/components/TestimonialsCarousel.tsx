@@ -110,42 +110,7 @@ export default function TestimonialsCarousel() {
 
   return (
     <>
-      {/* ─── 3 Pillars Feature Banner ─── */}
-      <section className="relative bg-[#14427b] overflow-hidden">
-        {/* subtle diagonal accent */}
-        <div className="absolute inset-0 pointer-events-none opacity-10"
-          style={{ background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 60px)" }} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="grid md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
-            {pillars.map((pillar, i) => (
-              <motion.div
-                key={pillar.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.5 }}
-                whileHover={{ backgroundColor: "rgba(255,255,255,0.06)" }}
-                className="flex items-start gap-4 p-8 transition-colors duration-300"
-              >
-                <motion.span
-                  whileHover={{ scale: 1.2, rotate: [-5, 5, 0] }}
-                  transition={{ duration: 0.4 }}
-                  className="text-3xl flex-shrink-0 mt-0.5"
-                >
-                  {pillar.icon}
-                </motion.span>
-                <div>
-                  <h4 className="font-bold text-base mb-2" style={{ color: pillar.accent }}>
-                    {pillar.title}
-                  </h4>
-                  <p className="text-white/65 text-sm leading-relaxed">{pillar.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ─── Video Testimonials ─── */}
       <section id="video-testimonials" className="py-20 lg:py-28 bg-white">

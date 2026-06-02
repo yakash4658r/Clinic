@@ -142,15 +142,15 @@ export default function AboutFounder() {
                 
                 <div className="space-y-5 text-gray-700 text-[15px] leading-relaxed mb-6">
                   <p>
-                    Dr Bharathi did her Post doctoral two years fellowship in Reproductive Medicine Tamil Nadu DR. M.G.R. University & Diploma in Reproductive Medicine (Kiel's,Â Germany)
+                    Dr.S. Hemalatha V did her M.PHIL., PHD., EMBRYOLOGIST (EXPERIENCE MORE THAN 20 YEARS)
                   </p>
                   <p>
-                    Dr. Bharathi has over 20 years of experience in Obstetrics and Gynecology, specializing in Ultrasound, Laparoscopy, and Hysteroscopy surgeries. She is successful in treating high-risk patients and repeated ICSI failures. Her practice is evidence-based, ethical, and affordable. Dr. Bharathi is patient-friendly, emphasizing detailed history, necessary investigations, and empathy. Her mission is to provide quality treatment at an affordable cost to help couples achieve parenthood.
+                    She is successful in treating high-risk patients and repeated ICSI failures. Her practice is evidence-based, ethical, and affordable. Dr S Hemalatha is patient-friendly, emphasizing detailed history, necessary investigations, and empathy. Her mission is to provide quality treatment at an affordable cost to help couples achieve parenthood.
                   </p>
                 </div>
 
                 <h4 className="font-extrabold text-gray-900 text-[17px] mb-4">
-                  Here Are Some Reasons Why We Are Successful For Over 20 Years:
+                  Here are some reasons why we are successful for over 10 years:
                 </h4>
                 <ul className="list-disc pl-6 space-y-1.5 text-gray-700 text-[15px] marker:text-gray-800">
                   <li>Experience and Expertise</li>
@@ -186,7 +186,7 @@ export default function AboutFounder() {
                   {/* Image */}
                   <img 
                     src={founderImg} 
-                    alt="Dr Bharathi" 
+                    alt="Dr S Hemalatha" 
                     className="absolute inset-0 w-full h-full object-contain object-bottom z-10 drop-shadow-md" 
                   />
                 </div>
@@ -194,7 +194,7 @@ export default function AboutFounder() {
                 {/* Doctor Info */}
                 <div className="text-center mb-8">
                   <p className="text-gray-800 font-medium text-[13px] mb-1">
-                    Dr. Bharathi M.B.B.S., MS(OBG)., F.R.M, D.R.M (Germany).
+                    Dr. S. Hemalatha V M.PHIL., PHD., EMBRYOLOGIST
                   </p>
                   <p className="text-gray-600 text-[13px]">
                     Our founder & Medical Director,

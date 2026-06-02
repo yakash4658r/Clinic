@@ -15,7 +15,9 @@ import {
   Baby, 
   Users, 
   TestTube, 
-  ClipboardList 
+  ClipboardList,
+  Clock,
+  ShieldCheck
 } from "lucide-react";
 
 const containerVariants = {
@@ -84,12 +86,40 @@ export default function AboutFounder() {
 
   return (
     <>
+      {/* Stats Bar */}
+      <div className="bg-[#14427b] text-white py-12 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-10 md:divide-x md:divide-white/20">
+            {/* Stat 1 */}
+            <div className="flex flex-col items-center justify-center text-center px-4">
+              <Baby className="w-8 h-8 mb-3 text-white" strokeWidth={1.5} />
+              <div className="text-lg lg:text-xl font-bold">5000+ Babies born</div>
+            </div>
+            {/* Stat 2 */}
+            <div className="flex flex-col items-center justify-center text-center px-4">
+              <Clock className="w-8 h-8 mb-3 text-white" strokeWidth={1.5} />
+              <div className="text-lg lg:text-xl font-bold">10+ years of experience</div>
+            </div>
+            {/* Stat 3 */}
+            <div className="flex flex-col items-center justify-center text-center px-4">
+              <ShieldCheck className="w-8 h-8 mb-3 text-white" strokeWidth={1.5} />
+              <div className="text-lg lg:text-xl font-bold">80% Success Rate</div>
+            </div>
+            {/* Stat 4 */}
+            <div className="flex flex-col items-center justify-center text-center px-4">
+              <Users className="w-8 h-8 mb-3 text-white" strokeWidth={1.5} />
+              <div className="text-lg lg:text-xl font-bold">10,000+ Trusted Families</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section id="about" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Paragraph */}
           <AnimatedSection>
-            <p className="text-gray-900 text-lg md:text-[22px] leading-relaxed mb-10 font-medium">
+            <p className="text-gray-900 text-lg md:text-[22px] leading-relaxed mb-10 font-medium text-center md:text-left">
               Shree IVF Care in Pondicherry is the brainchild of Dr. Hemalatha An ethical approach in counseling the patients, stating facts and offering affordable treatments for infertility has made Shree IVF Care in Pondicherry carve out an identity of its own. We aim at making treatments offered to overcome infertility, affordable, accessible and available for couples from all walks of life.
             </p>
           </AnimatedSection>

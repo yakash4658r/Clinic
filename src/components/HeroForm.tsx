@@ -98,14 +98,16 @@ export default function HeroForm() {
   };
 
   return (
-    <section id="hero" className="flex flex-col w-full">
+    <section id="hero" className="flex flex-col w-full relative overflow-hidden">
+      {/* Background Image with scale to make it look bigger */}
       <div 
-        className="relative min-h-[90vh] flex items-center pt-28 pb-16 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.15]"
         style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        {/* Light Overlay for readability */}
-        <div className="absolute inset-0 bg-white/70 sm:bg-white/50 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
+      />
+      {/* Light Overlay for readability */}
+      <div className="absolute inset-0 bg-white/70 sm:bg-white/50 bg-gradient-to-r from-white/90 via-white/70 to-white/30" />
 
+      <div className="relative min-h-[90vh] flex items-center pt-28 pb-16">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left — Hero Content */}

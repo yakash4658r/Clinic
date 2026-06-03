@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { SERVICES } from "../data";
 import { useReducedMotion } from "../hooks/useReducedMotion";
-import founderImg from "../assets/founder.png";
+import founderImg from "../assets/founder.jpeg";
 import { 
   Leaf, 
   Activity, 

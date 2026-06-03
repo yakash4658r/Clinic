@@ -64,7 +64,11 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} {CLINIC.name}. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <p>© {new Date().getFullYear()} {CLINIC.name}. All rights reserved.</p>
+            <span className="hidden sm:inline text-slate-700">|</span>
+            <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
+          </div>
           <p className="text-center sm:text-right max-w-md text-slate-600">
             <strong className="text-slate-500">Disclaimer:</strong> Success rates and outcomes depend on diagnostic criteria, maternal age, and other clinical details. This website is for informational purposes only. Consult a doctor for diagnostic guidance.
           </p>

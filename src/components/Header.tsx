@@ -30,7 +30,7 @@ export default function Header() {
             aria-label={`${CLINIC.name} - Home`}
           >
             <div className="flex items-center">
-              <img src={logoImg} alt="Clinic Logo" className="h-14 sm:h-16 w-auto object-contain" />
+              <img src={logoImg} alt="Clinic Logo" className="h-16 sm:h-20 w-auto object-contain scale-[1.5] sm:scale-[2] origin-left" />
             </div>
           </a>
 

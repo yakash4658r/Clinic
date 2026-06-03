@@ -69,9 +69,6 @@ export default function Footer() {
             <span className="hidden sm:inline text-slate-700">|</span>
             <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
           </div>
-          <p className="text-center sm:text-right max-w-md text-slate-600">
-            <strong className="text-slate-500">Disclaimer:</strong> Success rates and outcomes depend on diagnostic criteria, maternal age, and other clinical details. This website is for informational purposes only. Consult a doctor for diagnostic guidance.
-          </p>
         </div>
       </div>
     </footer>

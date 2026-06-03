@@ -18,21 +18,20 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-950 text-slate-400" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-28 lg:pb-14">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#14427b] to-[#0f325c] flex items-center justify-center shadow-sm">
-                <span className="text-white text-sm font-extrabold">B</span>
+                <span className="text-white text-sm font-extrabold">S</span>
               </div>
               <div>
-                <span className="font-bold text-white text-base leading-tight block">Bharati Fertility</span>
-                <span className="text-[10px] text-[#e51b60] font-medium leading-tight block tracking-wide uppercase">& Women Center</span>
+                <span className="font-bold text-white text-base leading-tight block">Shree IVF Care</span>
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs mb-5">
-              Ethical, evidence-based, and affordable treatments for infertility in Pondicherry and Chennai. Led by senior embryologist Dr. S. Hemalatha V.
+              Ethical, evidence-based, and affordable treatments for infertility in Pondicherry. Led by senior embryologist Dr. S. Hemalatha V.
             </p>
             <div className="flex flex-col gap-2 text-sm">
               <a

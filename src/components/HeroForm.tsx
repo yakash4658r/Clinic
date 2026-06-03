@@ -119,19 +119,19 @@ export default function HeroForm() {
             >
               {/* Badge */}
               <motion.div variants={item} className="mb-4">
-                <span className="text-[#e51b60] text-lg sm:text-xl font-semibold uppercase">NO.1 IVF & Fertility Center in Chennai</span>
+                <span className="text-[#e51b60] text-lg sm:text-xl font-semibold uppercase">NO.1 IVF & Fertility Center in Pondicherry</span>
               </motion.div>
 
               {/* Headline */}
               <motion.h1 variants={item} className="font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl text-[#14427b] leading-[1.2] mb-6">
                 Expert IVF Doctors with High Success Rates
-                <span className="block mt-2">in Chennai</span>
+                <span className="block mt-2">in Pondicherry</span>
               </motion.h1>
 
               {/* Location Tag */}
               <motion.div variants={item} className="inline-block mt-4">
                 <span className="bg-[#e51b60] text-white px-6 py-2 rounded-full text-lg font-semibold shadow-md">
-                  Ambattur
+                  Pondicherry
                 </span>
               </motion.div>
             </motion.div>

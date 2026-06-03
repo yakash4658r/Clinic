@@ -48,12 +48,7 @@ body {
   outline-offset: 2px;
 }
 
-/* Mobile bottom bar padding for main content */
-@media (max-width: 1023px) {
-  main {
-    padding-bottom: 72px;
-  }
-}
+
 
 /* Glassmorphism select fix */
 select option {

@@ -135,7 +135,7 @@ export default function AboutFounder() {
               <AnimatedSection direction="left">
                 <h2 className="font-extrabold text-3xl md:text-[34px] text-[#14427b] leading-tight mb-8">
                   IVF Treatment at the Lowest Cost<br/>
-                  <span className="text-[#e51b60]">in Chennai</span>
+                  <span className="text-[#e51b60]">in Pondicherry</span>
                 </h2>
 
                 <h3 className="font-bold text-[22px] text-[#14427b] mb-4">About Our Founder</h3>

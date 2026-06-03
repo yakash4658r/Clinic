@@ -19,9 +19,9 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-28 lg:pb-14">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+        <div className="flex flex-col mb-10">
           {/* Brand */}
-          <div className="sm:col-span-2">
+          <div className="max-w-md">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#14427b] to-[#0f325c] flex items-center justify-center shadow-sm">
                 <span className="text-white text-sm font-extrabold">S</span>
@@ -55,43 +55,6 @@ export default function Footer() {
                 </svg>
                 {CLINIC.hours}
               </span>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wide">Quick Links</h3>
-            <ul className="space-y-2.5">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                    className="text-sm text-slate-400 hover:text-[#e51b60] transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wide">Trust & Safety</h3>
-            <div className="space-y-3">
-              {[
-                { icon: "🏥", text: "Certified Embryologists" },
-                { icon: "🔬", text: "Medical-Grade Labs" },
-                { icon: "✅", text: "Hygienic Protocols" },
-                { icon: "💬", text: "Post-Care Support" },
-                { icon: "💰", text: "Transparent Pricing" },
-              ].map((item) => (
-                <div key={item.text} className="flex items-center gap-2.5 text-sm text-slate-400">
-                  <span>{item.icon}</span>
-                  <span>{item.text}</span>
-                </div>
-              ))}
             </div>
           </div>
         </div>

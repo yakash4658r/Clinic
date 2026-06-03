@@ -29,16 +29,8 @@ export default function Header() {
             className="flex items-center gap-3 group"
             aria-label={`${CLINIC.name} - Home`}
           >
-            <div className="flex items-center gap-2">
-              <img src={logoImg} alt="Bharati Fertility Logo" className="h-10 sm:h-12 w-auto object-contain" />
-              <div className="flex flex-col">
-                <span className="font-bold text-xl sm:text-2xl leading-none tracking-tight text-[#14427b]">
-                  Bharati Fertility
-                </span>
-                <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#e51b60] mt-0.5">
-                  & Women Center
-                </span>
-              </div>
+            <div className="flex items-center">
+              <img src={logoImg} alt="Clinic Logo" className="h-14 sm:h-16 w-auto object-contain" />
             </div>
           </a>
 

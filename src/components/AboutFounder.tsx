@@ -230,7 +230,7 @@ export default function AboutFounder() {
       {/* Treatments Section */}
       <section
         id="treatments"
-        className="relative py-20 lg:py-28 overflow-hidden border-t border-pink-100"
+        className="relative py-10 lg:py-16 overflow-hidden border-t border-pink-100"
         style={{ background: "linear-gradient(160deg, #fff5f8 0%, #fef0f5 30%, #f8f0ff 60%, #fff5fb 100%)" }}
       >
         {/* Decorative blobs */}
@@ -247,15 +247,6 @@ export default function AboutFounder() {
 
           {/* Section Header */}
           <AnimatedSection className="text-center mb-10">
-            <motion.span
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-[#e51b60] mb-4 bg-pink-50 border border-pink-200 px-4 py-1.5 rounded-full"
-            >
-              World-Class Care
-            </motion.span>
             <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-bold leading-tight mb-5">
               <span className="text-gray-900 font-serif">Our </span>
               <span
@@ -273,7 +264,7 @@ export default function AboutFounder() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-60px" }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+            className="flex flex-wrap justify-center gap-5"
           >
             {SERVICES.map((s, idx) => {
               const meta = SERVICE_META[s.id] || { category: "TREATMENT", color: "pink" };
@@ -281,7 +272,7 @@ export default function AboutFounder() {
                 <motion.div
                   key={s.id}
                   variants={cardVariants}
-                  className="group"
+                  className="group w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.33px)] xl:w-[calc(25%-15px)]"
                 >
                   <motion.div
                     whileHover="hover"

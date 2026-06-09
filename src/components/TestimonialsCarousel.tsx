@@ -113,7 +113,7 @@ export default function TestimonialsCarousel() {
 
 
       {/* ─── Video Testimonials ─── */}
-      <section id="video-testimonials" className="py-20 lg:py-28 bg-white">
+      <section id="video-testimonials" className="py-10 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <AnimatedSection className="text-center mb-14">
@@ -212,12 +212,10 @@ export default function TestimonialsCarousel() {
       </section>
 
       {/* ─── Reviews Section ─── */}
-      <section id="reviews" className="py-20 lg:py-28 bg-gray-50 border-t border-gray-100">
+      <section id="reviews" className="py-6 lg:py-10 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <span className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-[#e51b60] mb-4 bg-pink-50 border border-pink-200 px-4 py-1.5 rounded-full">
-              Patient Stories
-            </span>
+          <AnimatedSection className="text-center mb-6">
+
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
               <span className="text-gray-900">What Our Patients </span>
               <span style={{ background: "linear-gradient(135deg, #e51b60, #ff6b9d)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
@@ -243,16 +241,17 @@ export default function TestimonialsCarousel() {
             </motion.div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TESTIMONIALS.slice(0, 6).map((testimonial, i) => (
-              <motion.article
-                key={testimonial.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-white border border-gray-100 shadow-sm rounded-2xl p-7 flex flex-col hover:shadow-md transition-shadow"
-              >
+          <div className="relative w-full overflow-hidden flex items-center py-4">
+            <motion.div
+              className="flex gap-6 shrink-0 pr-6"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+            >
+              {[...TESTIMONIALS.slice(0, 4), ...TESTIMONIALS.slice(0, 4)].map((testimonial, i) => (
+                <article
+                  key={`${testimonial.id}-${i}`}
+                  className="bg-white border border-gray-100 shadow-sm rounded-2xl p-7 flex flex-col hover:shadow-md transition-shadow w-[320px] sm:w-[350px] shrink-0"
+                >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#14427b] to-[#e51b60] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                     {testimonial.initials}
@@ -278,8 +277,9 @@ export default function TestimonialsCarousel() {
                     {testimonial.service}
                   </span>
                 </div>
-              </motion.article>
-            ))}
+                </article>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>

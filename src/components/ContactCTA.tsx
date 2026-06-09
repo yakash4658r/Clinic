@@ -16,14 +16,14 @@ export default function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-white border-t border-gray-200">
+    <section id="contact" className="py-6 lg:py-10 bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
 
 
         {/* Map for Location */}
         <AnimatedSection delay={0.3}>
-          <div id="locations-map" className="bg-gray-50 border border-gray-200 rounded-3xl p-4 sm:p-6 mb-10 shadow-sm">
+          <div id="locations-map" className="bg-gray-50 border border-gray-200 rounded-3xl p-4 sm:p-6 shadow-sm">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
               <div className="text-center sm:text-left">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 mb-1">Our Location</h3>

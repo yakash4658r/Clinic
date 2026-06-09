@@ -116,15 +116,7 @@ export default function TestimonialsCarousel() {
       <section id="video-testimonials" className="py-10 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <AnimatedSection className="text-center mb-14">
-            <motion.span
-              initial={{ opacity: 0, y: -8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase text-[#e51b60] mb-4 bg-pink-50 border border-pink-200 px-4 py-1.5 rounded-full"
-            >
-              Success Journeys
-            </motion.span>
+          <AnimatedSection className="text-center mb-6">
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
               <span className="text-gray-900">Testimonial </span>
               <span

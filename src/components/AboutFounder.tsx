@@ -128,7 +128,7 @@ export default function AboutFounder() {
           <hr className="border-gray-800 border-t mb-12" />
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-16 lg:mb-24">
             
             {/* Left Side */}
             <div className="lg:col-span-7">
@@ -219,6 +219,84 @@ export default function AboutFounder() {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                     </svg>
+                  </button>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full flex justify-center mb-16 lg:mb-24">
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#e51b60] to-transparent opacity-30 rounded-full" />
+          </div>
+
+          {/* Second Doctor */}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            
+            {/* Left Side - Image */}
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <AnimatedSection direction="left" className="flex flex-col items-center">
+                
+                {/* Image Container with Blob */}
+                <div className="relative w-full max-w-[400px] aspect-square mb-6 mx-auto">
+                  {/* Decorative circles */}
+                  <div className="absolute top-12 right-4 w-6 h-6 bg-pink-100 rounded-full opacity-70" />
+                  <div className="absolute bottom-1/4 right-2 w-8 h-8 bg-pink-100 rounded-full opacity-70" />
+                  
+                  {/* Pink Blob Shape */}
+                  <div 
+                    className="absolute inset-8 bg-[#e51b60]"
+                    style={{ borderRadius: '40% 60% 50% 50% / 50% 40% 60% 50%' }}
+                  />
+                  
+                  {/* Image Placeholder */}
+                  <img 
+                    src={founderImg} 
+                    alt="Doctor 2" 
+                    className="absolute inset-0 w-full h-full object-contain object-bottom z-10 drop-shadow-md grayscale opacity-80" 
+                  />
+                </div>
+
+                {/* Doctor Info */}
+                <div className="text-center mb-8">
+                  <p className="text-gray-800 font-medium text-[13px] mb-1">
+                    Dr. [Doctor Name] [Qualifications]
+                  </p>
+                  <p className="text-gray-600 text-[13px]">
+                    [Specialization / Role]
+                  </p>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            {/* Right Side - Text */}
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <AnimatedSection direction="right">
+                <h3 className="font-bold text-[22px] text-[#e51b60] mb-4">Meet Our Specialist</h3>
+                
+                <div className="space-y-5 text-gray-700 text-[15px] leading-relaxed mb-6">
+                  <p>
+                    [Add doctor's description here. E.g., Dr. Name has extensive experience in treating complex fertility cases with a high success rate.]
+                  </p>
+                  <p>
+                    [Add more details about their expertise, patient care philosophy, or specialized procedures they handle.]
+                  </p>
+                </div>
+
+                <h4 className="font-extrabold text-gray-900 text-[17px] mb-4">
+                  Areas of Expertise:
+                </h4>
+                <ul className="list-disc pl-6 space-y-1.5 text-gray-700 text-[15px] marker:text-gray-800 mb-8">
+                  <li>Expertise area 1</li>
+                  <li>Expertise area 2</li>
+                  <li>Expertise area 3</li>
+                  <li>Expertise area 4</li>
+                </ul>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-3 w-full lg:justify-start px-2 flex-wrap">
+                  <button onClick={scrollToForm} className="bg-[#e51b60] text-white px-5 py-2 text-sm font-bold hover:bg-[#c91552] transition-colors">
+                    Consult Doctor
                   </button>
                 </div>
               </AnimatedSection>
